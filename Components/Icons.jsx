@@ -27,11 +27,12 @@ const Icons = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     borderRadius: 5,
-    width: 300,
+    width: "100%",
+    height: "100%",
     backgroundColor:'#e6f9ff'
   }
 })

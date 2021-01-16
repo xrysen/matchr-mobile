@@ -5,11 +5,12 @@ import RestaurantImage from "./Components/RestaurantImage";
 import RestaurantInfo from "./Components/RestaurantInfo";
 import RestaurantName from "./Components/RestaurantName";
 import Icons from "./Components/Icons";
+import Swipeable from "./Components/Swipeable";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <RestaurantName name = "Miku" />
+    <View >
+      {/* <RestaurantName name = "Miku" />
       <RestaurantImage image="https://s3-media2.fl.yelpcdn.com/bphoto/B7I6zFE_Ryv_0UoD5Ia2nw/o.jpg" />
       <RestaurantInfo
         address="200 Granville Street"
@@ -18,6 +19,8 @@ export default function App() {
         price="$$$"
         city="Vancouver, BC"
       />
+      <Icons /> */}
+      <Swipeable />
       <Icons />
       <StatusBar style="auto" />
     </View>
