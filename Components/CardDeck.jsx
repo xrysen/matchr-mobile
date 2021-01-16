@@ -1,28 +1,18 @@
 import React, { useRef, useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  Animated,
-  PanResponder,
-  Text,
-  Platform,
-  Dimensions,
-  Image,
-} from "react-native";
+import { Animated, PanResponder, Dimensions } from "react-native";
 import clamp from "clamp";
-
-const { width } = Dimensions.get('screen');
+const { width } = Dimensions.get("screen");
 
 const SWIPE_THRESHOLD = 0.25 * width;
 
-export default function useTinderCard (deck) {
+export default function useTinderCards(deck) {
   const [data, setData] = useState(deck);
 
   const animation = useRef(new Animated.ValueXY()).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(0.9)).current;
 
-  const transitionNext = function() {
+  const transitionNext = function () {
     Animated.parallel([
       Animated.timing(opacity, {
         toValue: 0,
@@ -56,12 +46,12 @@ export default function useTinderCard (deck) {
       },
       onPanResponderRelease: (e, { dx, dy, vx, vy }) => {
         let velocity;
-        if(vx >= 0) {
+        if (vx >= 0) {
           velocity = clamp(vx, 4, 5);
         } else if (vx < 0) {
           velocity = clamp(Math.abs(vx), 4, 5) * -1;
         }
-        if(Math.abs(dx) > SWIPE_THRESHOLD) {
+        if (Math.abs(dx) > SWIPE_THRESHOLD) {
           Animated.parallel([
             Animated.decay(animation, {
               velocity: { x: velocity, y: vy },
@@ -77,11 +67,11 @@ export default function useTinderCard (deck) {
           if (velocity > 0) {
             // handleRightDecay();
           } else {
-            // hanleLeftDecay();
+            // handleLeftDecay();
           }
         } else {
           Animated.spring(animation, {
-            toVlue: { x: 0, y: 0 },
+            toValue: { x: 0, y: 0 },
             friction: 4,
             useNativeDriver: false,
           }).start();
