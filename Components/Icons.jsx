@@ -2,38 +2,41 @@ import React from "react";
 import { TouchableHighlight, View, StyleSheet } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faTimesCircle, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Icons = () => {
+const Icons = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableHighlight
+      <TouchableOpacity
         activeOpacity={0.6}
         underlayColor="#DDDDDD"
-        onPress={() => alert("Nope!")}
+        onPress={()=> alert("Nope!")}
       >
         <FontAwesomeIcon icon={faTimesCircle} size={50} color={"red"} />
-      </TouchableHighlight>
+      </TouchableOpacity>
 
-      <TouchableHighlight
+      <TouchableOpacity
         activeOpacity={0.6}
         underlayColor="#DDDDDD"
-        onPress={() => alert("Yep!")}
+        onPress={()=> alert("Yep!")}
         >
           <FontAwesomeIcon icon={faHeart} size={50} color={"green"}  />
-        </TouchableHighlight>
+        </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 5,
     flexDirection: "row",
     justifyContent: "space-between",
     borderRadius: 5,
     width: "100%",
-    height: "100%",
-    backgroundColor:'#e6f9ff'
+    height: 300,
+    backgroundColor:'#e6f9ff',
+    position: "absolute",
+    top: 600,
   }
 })
 
