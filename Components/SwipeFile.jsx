@@ -1,7 +1,11 @@
 import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Animated, PanResponder, Text, Platform, Dimensions, Image } from "react-native";
+import { getRestaurantIdsWithFilter } from "../helpers/yelp";
 
+const test = getRestaurantIdsWithFilter("mexican");
+
+test.then(res => console.log(res));
 
 const photoCards = [
   {

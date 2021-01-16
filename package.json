@@ -17,20 +17,13 @@
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-    "react-native-deck-swiper": "^2.0.5",
-    "react-native-elements": "^3.1.0",
+    "react-native-axios": "^0.17.1",
+    "react-native-config": "^1.4.1",
+    "react-native-dotenv": "^2.5.0",
     "react-native-gesture-handler": "^1.9.0",
-    "react-native-reanimated": "^1.13.2",
     "react-native-redash": "^16.0.6",
-    "react-native-svg": "^12.1.0",
-    "react-native-swipe-cards": "^0.1.1",
-    "react-native-swipe-cards-deck": "^0.2.15",
-    "react-native-vector-icons": "^7.1.0",
-    "react-native-view-overflow": "0.0.5",
-    "react-native-web": "~0.13.12",
-    "use-swipe-hook": "^1.1.0"
+    "react-native-svg": "^12.1.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
