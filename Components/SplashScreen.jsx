@@ -5,7 +5,7 @@ const SplashScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/logoIcon.png")} />
+      
       <Text>Welcome!</Text>
     </View>
   );

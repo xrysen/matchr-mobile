@@ -7,6 +7,7 @@ import {
   Text,
   ImageBackground,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import Icons from "./Components/Icons";
 import CardDeck from "./hooks/CardDeck";
@@ -20,6 +21,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import Loading from "./Components/Loading";
+import Login from "./Components/Login";
 
 
 
@@ -28,7 +30,8 @@ const splashScreen = require("./assets/splashScreen.jpg");
 const HomeScreen = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     'PottaOne': require("./assets/Fonts/PottaOne-Regular.ttf"),
-    "DidactGothic": require("./assets/Fonts/DidactGothic-Regular.ttf")
+    "DidactGothic": require("./assets/Fonts/DidactGothic-Regular.ttf"),
+    "Lora-Medium": require("./assets/Fonts/Lora-Medium.ttf")
   });
 
   if (!fontsLoaded) {
@@ -39,11 +42,12 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <ImageBackground
-      blurRadius={0.5}
+      blurRadius={0.4}
       source={splashScreen}
       style={{ width: "100%", height: "99%", marginTop: 20 }}
     >
-      <View style={{ flex: 1, alignItems: "center", marginTop: "90%" }}>
+      <View style={{ flex: 1, alignItems: "center", marginTop: 10 }}>
+      <Image source = {require("./assets/matchrLogo.png")} style={{width: 200, height: 200, marginTop: 70, marginBottom: 150 }}/>
         <TouchableOpacity
           style={{
             width: 100,
@@ -51,11 +55,12 @@ const HomeScreen = ({ navigation }) => {
             backgroundColor: "blue",
             borderRadius: 10,
             justifyContent: "center",
+            alignContent: "center"
             
           }}
           onPress={() => navigation.navigate("Details")}
         >
-          <Text style={{ textAlign: "center", color: "white", fontSize: 20, fontFamily: "DidactGothic" }}>
+          <Text style={{ textAlign: "center", color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}>
             Login
           </Text>
         </TouchableOpacity>
@@ -69,7 +74,7 @@ const HomeScreen = ({ navigation }) => {
             marginTop: 15
           }}
         >
-          <Text style={{ textAlign: "center", color: "white", fontSize: 20, fontFamily: "DidactGothic" }}>
+          <Text style={{ textAlign: "center", color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}>
             Register
           </Text>
         </TouchableOpacity>
@@ -90,6 +95,7 @@ const DetailsScreen = ({ navigation }) => {
 const Stack = createStackNavigator();
 
 export default function App() {
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -100,10 +106,11 @@ export default function App() {
         />
         <Stack.Screen
           name="Details"
-          component={BusinessList}
+          component={Login}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+   // <Login />
   );
 }
