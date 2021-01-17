@@ -2,10 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import { Animated, PanResponder, Dimensions } from "react-native";
 import clamp from "clamp";
 const { width } = Dimensions.get("screen");
+import { getRestaurantIdsWithFilter } from "../helpers/yelp";
 
 const SWIPE_THRESHOLD = 0.25 * width;
 
-export default function useTinderCards(deck) {
+export default function CardDeck(deck) {
   const [data, setData] = useState(deck);
 
   const animation = useRef(new Animated.ValueXY()).current;

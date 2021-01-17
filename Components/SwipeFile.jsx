@@ -1,52 +1,12 @@
 import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Animated, PanResponder, Text, Platform, Dimensions, Image } from "react-native";
-import { getRestaurantIdsWithFilter } from "../helpers/yelp";
+import { getRestaurantIdsWithFilter, createRestaurantProfile, buildRestaurants } from "../helpers/yelp";
 
-const test = getRestaurantIdsWithFilter("mexican");
+const SwipeFile = (props) => {
+  const [places, setPlaces] = useState([]);
+  const [data, _panResponder, animation, scale, opacity] = CardDeck(props.cards);
 
-test.then(res => console.log(res));
-
-const photoCards = [
-  {
-    id: "1",
-    price: "$$",
-    name: "Miku",
-    image:
-      "https://s3-media2.fl.yelpcdn.com/bphoto/B7I6zFE_Ryv_0UoD5Ia2nw/o.jpg",
-  },
-  {
-    id: "2",
-    price: "$$",
-    name: "Kingyo",
-    image:
-      "https://s3-media1.fl.yelpcdn.com/bphoto/WF4BFTEjqUd6B6ZEjM4_Rg/o.jpg",
-  },
-  {
-    id: "3",
-    price: "$$",
-    name: "Hokkaido Ramen Santouka",
-    image:
-      "https://s3-media3.fl.yelpcdn.com/bphoto/b6KQNr3_x1ISJGLTfApcgA/o.jpg",
-  },
-  {
-    id: "4",
-    price: "$$",
-    name: "Marutama Ramen",
-    image:
-      "https://s3-media3.fl.yelpcdn.com/bphoto/XZoibXxwxNwHjnFYB372vw/o.jpg",
-  },
-  {
-    id: "5",
-    price: "$$",
-    name: "Guu Original Thurlow",
-    image:
-      "https://s3-media2.fl.yelpcdn.com/bphoto/yDArSNGPQStbKCBVwA2ysw/o.jpg",
-  },
-];
-
-const SwipeFile = () => {
-  const [data, _panResponder, animation, scale, opacity] = CardDeck(photoCards);
   return (
     <View>
       {data
@@ -84,11 +44,17 @@ const SwipeFile = () => {
                 <Image
                   style={styles.image}
                   resizeMode="cover"
-                  source={{ uri: `${item.image}` }}
+                  source={{ uri: `${item.image_url}` }}
                 />
               </View>
               <View style={styles.textContainer}>
-                <Text style={styles.nameText}>{item.name}</Text>
+                <Text style={styles.nameText}>
+                  {item.name} {'\n'}
+                  {item.display_phone.slice(3)}{'\n'}
+                  {item.location.address1}{'\n'}
+                  {item.location.city}{'\n'}
+                  {item.rating} ⭐ {item.price}
+                  </Text>
               </View>
             </Animated.View>
           );
@@ -99,8 +65,9 @@ const SwipeFile = () => {
 
 const styles = StyleSheet.create({
   card: {
+    paddingTop: 30,
     width: '100%',
-    height: 600,
+    height: 550,
     backgroundColor: '#f4f4f4',
     position: 'absolute',
     borderRadius: 10,
