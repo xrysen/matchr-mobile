@@ -15,7 +15,7 @@ async componentDidMount() {
   let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=mexican&limit=10`, {
           method: "GET",
           headers: {
-            Authorization: `Bearer THulhPaLp88DDUfXjuTXcPD3c7p0mG_rWdnClac06zhwno9pgOofPKMrv8hJ3yIwIAIcUAW_qf2nGWWwcIRDUQznYVTyffJt22LkyZUmk2LtwkVmpE9mk7RnYq3CX3Yx`,
+            Authorization: `Bearer ${ API_KEY_YELP }`,
           },
         });
         const json = await response.json();

@@ -8,7 +8,7 @@ const Welcome = (props) => {
   return (
     <View>
       <TouchableOpacity onPress={props.onPress} style={{marginBottom: 30}}>
-        <GradientButton text="Login" />
+        <GradientButton text="Tap To Start" />
       </TouchableOpacity>
     </View>
   );

@@ -3,12 +3,10 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import GradientButton from "./GradientButton";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const FriendList = () => {
-
+const FriendList = ( {navigation } ) => {
   let [fontsLoaded] = useFonts({
-    PottaOne: require("../assets/Fonts/PottaOne-Regular.ttf"),
-    DidactGothic: require("../assets/Fonts/DidactGothic-Regular.ttf"),
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
 
@@ -16,25 +14,95 @@ const FriendList = () => {
     return <Loading />;
   }
 
-  return(
-    <View style = {styles.container}>
-      <Image source={require("../assets/Avatars/avatar1.png")} style={{ marginTop: 20, marginBottom: 20, borderRadius: 10 }}/>
-      <Text style={{color: "white", fontFamily: "Lora-Medium", fontSize: 20}}>Welcome, Sally!</Text>
-      <View style={{ marginTop: 5, borderBottomWidth: 1, borderColor: "white",  width: "100%"}}>
-
+  return (
+    <View style={styles.container}>
+      <View style={styles.profile}>
+        <Image
+          source={require("../assets/Avatars/avatar1.png")}
+          style={{ marginTop: 20, marginBottom: 20, borderRadius: 10 }}
+        />
+        <Text
+          style={{ color: "white", fontFamily: "Lora-Medium", fontSize: 20 }}
+        >
+          Welcome, Sally!
+        </Text>
+        <Text
+          style={{ color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}
+        >
+          Who are we dining with?
+        </Text>
       </View>
-      <GradientButton text="Let's Match!" />
+      <View style={styles.friendsList}></View>
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
+        <Image
+          source={require("../assets/Avatars/avatar3.png")}
+          style={{ borderRadius: 100, marginRight: 30, marginLeft: 30 }}
+        />
+        <View style={{ marginTop: 6 }}>
+          <TouchableOpacity onPress={() => navigation.navigate("BusinessList")}>
+            <GradientButton text="Ella Vader" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
+        <Image
+          source={require("../assets/Avatars/avatar3.png")}
+          style={{ borderRadius: 100, marginRight: 30, marginLeft: 30 }}
+        />
+        <View style={{ marginTop: 6 }}>
+          <TouchableOpacity onPress={() => navigation.navigate("BusinessList")}>
+            <GradientButton text="Hedda Lettuce" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
+        <Image
+          source={require("../assets/Avatars/avatar2.png")}
+          style={{ borderRadius: 100, marginRight: 30, marginLeft: 30 }}
+        />
+        <View style={{ marginTop: 6 }}>
+          <TouchableOpacity onPress={() => navigation.navigate("BusinessList")}>
+            <GradientButton text="Shady Dude" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
+        <Image
+          source={require("../assets/Avatars/avatar2.png")}
+          style={{ borderRadius: 100, marginRight: 30, marginLeft: 30 }}
+        />
+        <View style={{ marginTop: 6 }}>
+          <TouchableOpacity onPress={() => navigation.navigate("BusinessList")}>
+            <GradientButton text="Hahn Guarde" />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#2F4124",
+  profile: {
+    backgroundColor: "#846C9C",
+    width: "100%",
     alignItems: "center",
+    borderBottomRightRadius: 80,
+    borderBottomLeftRadius: 80,
+  },
+  container: {
     marginTop: 30,
-    height: "100%"
-  }
-})
+    height: "100%",
+  },
+  friendsList: {
+    backgroundColor: "white",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    zIndex: -1,
+  },
+});
 
 export default FriendList;

@@ -25,6 +25,7 @@ const HomeScreen = ( { navigation }) => {
   if (!fontsLoaded) {
     return <Loading />;
   }
+  
   if(mode === "Match") {
     return (
       <BusinessList />
@@ -47,8 +48,9 @@ const HomeScreen = ( { navigation }) => {
               marginBottom: 150,
             }}
           />
-          {mode === "Home" && ( <Welcome onPress={() => transition("Match")}/> )}
-          {mode === "Login" && ( <Login onBack={back}/>) }
+
+          <Welcome onPress={() => navigation.navigate('FriendList')}/>
+          
         </View>
       </ImageBackground>
     );
