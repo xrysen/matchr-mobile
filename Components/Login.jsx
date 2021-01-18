@@ -1,32 +1,50 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput, ImageBackground } from "react-native";
+import { View, StyleSheet, TextInput, TouchableOpacity, Text } from "react-native";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <ImageBackground
-      source={require("../assets/splashScreen.jpg")}
-      style={{ width: "100%", height: "99%", marginTop: 20 }}
-    >
-      <View style={styles.container}>
-        <TextInput
-          style={styles.Textinput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
-        />
+    <View style={styles.container}>
+      <TextInput
+        style={styles.Textinput}
+        placeholder="Email."
+        placeholderTextColor="white"
+        onChangeText={(email) => setEmail(email)}
+      />
 
-        <TextInput
-          secureTextEntry={true}
-          style={styles.Textinput}
-          placeholder="Password"
-          placeholderTextColor="#003f5c"
-          onChangeText={(password) => setPassword(password)}
-        />
-      </View>
-    </ImageBackground>
+      <TextInput
+        secureTextEntry={true}
+        style={styles.Textinput}
+        placeholder="Password"
+        placeholderTextColor="white"
+        onChangeText={(password) => setPassword(password)}
+      />
+
+      <TouchableOpacity
+        style={{
+          width: 100,
+          height: 50,
+          backgroundColor: "blue",
+          borderRadius: 10,
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+        onPress={props.onBack}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            color: "white",
+            fontSize: 20,
+            fontFamily: "Lora-Medium",
+          }}
+        >
+          Back
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -35,10 +53,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginBottom: 600,
   },
   inputView: {
-    backgroundColor: "#FFC0CB",
+    backgroundColor: "white",
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -51,6 +69,9 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 20,
     borderBottomWidth: 2,
+    backgroundColor: "blue",
+    borderRadius: 5,
+    color: "white",
   },
 });
 
