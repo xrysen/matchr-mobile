@@ -4,8 +4,7 @@ import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import GradientButton from "./GradientButton";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
-const bgImage = { uri: "https://www.transparenttextures.com/patterns/black-paper.png" };
+import Profile from "./Profile";
 
 const FriendList = ( {navigation } ) => {
   let [fontsLoaded] = useFonts({
@@ -18,25 +17,7 @@ const FriendList = ( {navigation } ) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.profile}>
-        <ImageBackground source={bgImage} style={{width: "100%", alignItems: "center"}}>
-
-        <Image
-          source={require("../assets/Avatars/avatar1.png")}
-          style={{ marginTop: 20, marginBottom: 20, borderRadius: 10 }}
-          />
-        <Text
-          style={{ color: "white", fontFamily: "Lora-Medium", fontSize: 20 }}
-          >
-          Welcome, Sally!
-        </Text>
-        <Text
-          style={{ color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}
-          >
-          Who are we dining with?
-        </Text>
-          </ImageBackground>
-      </View>
+      <Profile />
       <View style={styles.friendsList}></View>
       <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
         <Image
