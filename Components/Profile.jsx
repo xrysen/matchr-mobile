@@ -1,7 +1,9 @@
 import React from "react";
 import { View, ImageBackground, Image, Text, StyleSheet } from "react-native";
 
-const bgImage = { uri: "https://www.transparenttextures.com/patterns/black-paper.png" };
+const bgImage = {
+  uri: "https://www.transparenttextures.com/patterns/black-paper.png",
+};
 
 const Profile = () => {
   return (
@@ -34,8 +36,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#846C9C",
     width: "100%",
     alignItems: "center",
-    height: 250
+    height: 250,
   },
-})
+});
 
 export default Profile;

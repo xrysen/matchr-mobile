@@ -5,8 +5,10 @@ import Loading from "./Loading";
 import GradientButton from "./GradientButton";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Profile from "./Profile";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
-const FriendList = ( {navigation } ) => {
+const FriendList = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
@@ -65,6 +67,12 @@ const FriendList = ( {navigation } ) => {
             <GradientButton text="Hahn Guarde" />
           </TouchableOpacity>
         </View>
+      </View>
+
+      <View style={{ alignItems: "center", marginTop: 90 }}>
+        <TouchableOpacity>
+          <FontAwesomeIcon icon={faUserPlus} size={50} color={"#846C9C"} />
+        </TouchableOpacity>
       </View>
     </View>
   );
