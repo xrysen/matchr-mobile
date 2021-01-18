@@ -5,7 +5,7 @@ const bgImage = {
   uri: "https://www.transparenttextures.com/patterns/black-paper.png",
 };
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <View style={styles.profile}>
       <ImageBackground
@@ -19,12 +19,12 @@ const Profile = () => {
         <Text
           style={{ color: "white", fontFamily: "Lora-Medium", fontSize: 20 }}
         >
-          Welcome, Sally!
+          Welcome, {props.userName}!
         </Text>
         <Text
           style={{ color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}
         >
-          Who are we dining with?
+          {props.question}
         </Text>
       </ImageBackground>
     </View>
