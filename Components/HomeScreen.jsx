@@ -5,11 +5,15 @@ import Loading from "./Loading";
 import useVisualMode from "../hooks/useVisualMode"
 import Welcome from "./Welcome";
 import Login from "./Login";
+import { BusinessList } from "./BusinessList";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 
 const splashScreen = require("../assets/splashScreen.jpg");
+const Stack = createStackNavigator();
 
-const HomeScreen = () => {
+const HomeScreen = ( { navigation }) => {
   let [fontsLoaded] = useFonts({
     PottaOne: require("../assets/Fonts/PottaOne-Regular.ttf"),
     DidactGothic: require("../assets/Fonts/DidactGothic-Regular.ttf"),
@@ -20,6 +24,11 @@ const HomeScreen = () => {
 
   if (!fontsLoaded) {
     return <Loading />;
+  }
+  if(mode === "Match") {
+    return (
+      <BusinessList />
+    );
   }
 
     return (
@@ -38,7 +47,7 @@ const HomeScreen = () => {
               marginBottom: 150,
             }}
           />
-          {mode === "Home" && ( <Welcome onPress={() => transition("Login")}/> )}
+          {mode === "Home" && ( <Welcome onPress={() => transition("Match")}/> )}
           {mode === "Login" && ( <Login onBack={back}/>) }
         </View>
       </ImageBackground>

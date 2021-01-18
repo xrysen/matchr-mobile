@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import SwipeFile from "./SwipeFile";
 import Icons from "./Icons";
 import Loading from "./Loading";
+import { API_KEY_YELP } from "@env";
 
 class BusinessList extends React.Component {
   state = {
@@ -14,7 +15,7 @@ async componentDidMount() {
   let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=mexican&limit=10`, {
           method: "GET",
           headers: {
-            Authorization: `Bearer D1W-Ax9ipkEFeRQNCrMwmUyuVLpSxMQtBaOJC-1qtZ7iTYBcuoOtBhP6_KbWdz8eTNpmbnKKv5A-9q5sKcJfMnVvpROiJ8mmaE8dAYTiGSUjehLA4aeL-6DowKgDYHYx`,
+            Authorization: `Bearer THulhPaLp88DDUfXjuTXcPD3c7p0mG_rWdnClac06zhwno9pgOofPKMrv8hJ3yIwIAIcUAW_qf2nGWWwcIRDUQznYVTyffJt22LkyZUmk2LtwkVmpE9mk7RnYq3CX3Yx`,
           },
         });
         const json = await response.json();

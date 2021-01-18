@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef, useEffect } from "react";
-import { View, Button, Text } from "react-native";
+import { View, Button, Text, TextInput } from "react-native";
 import Icons from "./Components/Icons";
 import CardDeck from "./hooks/CardDeck";
 import SwipeFile from "./Components/SwipeFile";
@@ -11,39 +11,38 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./Components/HomeScreen";
+import FriendList from "./Components/FriendList";
 
-import Login from "./Components/Login";
-import useVisualMode from "./hooks/useVisualMode";
-import Welcome from "./Components/Welcome";
+import Loading from "./Components/Loading";
 
-const DetailsScreen = ({ navigation }) => {
+const TestConnection = () => {
+  const [message, setMessage] = useState("");
+  async function getMsg() {
+    const msg = await fetch("https://matchr.loca.lt/mobile").catch((err) => console.log(err));
+    return msg;
+  }
+
+  useEffect(() => {
+    const msg = getMsg();
+    msg.then((res) => res.json()).then(res => setMessage(res.test));
+  }, []);
+  
+  if(!message) {
+    return <Loading />
+  }
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text> Details Screen</Text>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-};
+    <Text style={{marginTop: 300}}>{message}</Text>
+  )
+}
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Home">
-    //     <Stack.Screen
-    //       name="Home"
-    //       component={HomeScreen}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="Details"
-    //       component={Login}
-    //       options={{ headerShown: false }}
-    //     />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    // <Login />
-    <HomeScreen />
-  );
+    //<HomeScreen />
+    //<TestConnection />
+    <FriendList />
+    );
 }
