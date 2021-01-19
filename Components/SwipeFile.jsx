@@ -64,20 +64,18 @@ const SwipeFile = (props) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'black'
+  },
   card: {
     paddingTop: 30,
     width: '100%',
-    height: 550,
-    backgroundColor: '#f4f4f4',
+    height: 600,
+    backgroundColor: 'black',
     position: 'absolute',
-    borderRadius: 10,
-    ...Platform.select({
-      android: {
-        elevation: 1
-      },
-    }),
+    
     borderWidth: 1,
-    borderColor: '#FFF',
+    borderColor: 'black',
   },
   imageContainer: {
     flex: 1
@@ -92,6 +90,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontSize: 16,
+    color: "white"
   },
   addressText: {
     fontSize: 14,

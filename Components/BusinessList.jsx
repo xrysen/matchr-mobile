@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import SwipeFile from "./SwipeFile";
 import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
+import { shuffleArray } from "../helpers/yelp";
 
 const BusinessList = ({route, navigation}) => {
   const [data, setData] = useState([]);
@@ -42,5 +43,11 @@ const BusinessList = ({route, navigation}) => {
   );
 
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "black"
+  }
+})
 
 export default BusinessList;

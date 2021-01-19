@@ -28,15 +28,15 @@ const Icons = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5,
+    paddingTop: 700,
+    paddingLeft: 50,
+    paddingRight: 50,
     flexDirection: "row",
     justifyContent: "space-between",
-    borderRadius: 5,
     width: "100%",
-    height: 300,
-    backgroundColor:'#e6f9ff',
-    position: "absolute",
-    top: 600,
+    height: "100%",
+    backgroundColor:'black',
+    zIndex: -1
   }
 })
 
