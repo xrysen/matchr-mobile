@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import FriendListItem from "./FriendListItem";
 import useVisualMode from "../hooks/useVisualMode";
+import Categories from "./Categories";
+import CategoryListItem from "./CategoryListItem";
 
 const data = [
   {
@@ -28,16 +30,16 @@ const data = [
 ];
 
 const FriendList = ({ navigation }) => {
+  const { mode, transition, back } = useVisualMode("friends");
   const fadeAnim = useRef(new Animated.Value(0)).current;
   let [fontsLoaded] = useFonts({
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
 
-  
   if (!fontsLoaded) {
     return <Loading />;
   }
-  
+
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
@@ -45,13 +47,13 @@ const FriendList = ({ navigation }) => {
       useNativeDriver: true,
     }).start();
   };
-  
+
   const fadeOut = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 500,
       useNativeDriver: true,
-    }).start();
+    }).start(() => (transition("categories")));
   };
 
   const friends = data.map((item) => {
@@ -69,13 +71,18 @@ const FriendList = ({ navigation }) => {
     <View style={styles.container}>
       <Profile userName="Sally" question="Who are we dining with?" />
       <View style={styles.friendsList}></View>
-      <Animated.View style={{ opacity: fadeAnim }}>
-        {fadeIn()}
-        {friends}
-      <View style={{ marginTop: 100, alignItems: "center" }}>
-        <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
-      </View>
-      </Animated.View>
+      {mode === "friends" && (
+        <Animated.View style={{ opacity: fadeAnim }}>
+          {fadeIn()}
+          {friends}
+          <View style={{ marginTop: 100, alignItems: "center" }}>
+            <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
+          </View>
+        </Animated.View>
+      )}
+      {mode === "categories" && (
+        <Animated.View style={{ opacity: fadeAnim }}>{fadeIn}<Categories /></Animated.View>
+      )}
     </View>
   );
 };
