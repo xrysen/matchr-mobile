@@ -53,7 +53,13 @@ const FriendList = ({ navigation }) => {
       toValue: 0,
       duration: 500,
       useNativeDriver: true,
-    }).start(() => (transition("categories")));
+    }).start(() => {
+      if (mode === "friends")
+        transition("categories")
+      else {
+        transition("friends");
+      }
+    });
   };
 
   const friends = data.map((item) => {
@@ -67,9 +73,15 @@ const FriendList = ({ navigation }) => {
     );
   });
 
+  let question = "Who are we dining with?"
+  if (mode==="friends")
+    question = "Who are we dining with?";
+  else
+    question = "What are you in the mood for?";
+
   return (
     <View style={styles.container}>
-      <Profile userName="Sally" question="Who are we dining with?" />
+      <Profile userName="Sally" question={question} />
       <View style={styles.friendsList}></View>
       {mode === "friends" && (
         <Animated.View style={{ opacity: fadeAnim }}>
@@ -81,7 +93,7 @@ const FriendList = ({ navigation }) => {
         </Animated.View>
       )}
       {mode === "categories" && (
-        <Animated.View style={{ opacity: fadeAnim }}>{fadeIn}<Categories /></Animated.View>
+        <Animated.View style={{ opacity: fadeAnim }}>{fadeIn}<Categories onPress = {fadeOut}/></Animated.View>
       )}
     </View>
   );

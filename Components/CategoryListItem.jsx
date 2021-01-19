@@ -4,8 +4,8 @@ import GradientButton from "./GradientButton";
 
 const CategoryListItem = (props) => {
   return (
-    <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
-        <View style={{ marginTop: 6 }}>
+    <View style={{ width: "100%", marginTop: 30 }}>
+        <View style={{ marginTop: 6, alignItems: "center" }}>
           <TouchableOpacity>
             <GradientButton text={props.text} />
           </TouchableOpacity>
