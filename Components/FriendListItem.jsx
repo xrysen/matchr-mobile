@@ -14,7 +14,7 @@ const FriendListItem =  (props) => {
           style={{ borderRadius: 100, marginRight: 30, marginLeft: 30 }}
         />
         <View style={{ marginTop: 6 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("BusinessList")}>
+          <TouchableOpacity onPress={ props.onPress}>
             <GradientButton text={props.userName} />
           </TouchableOpacity>
         </View>

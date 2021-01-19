@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { StyleSheet, Text, View, Animated } from "react-native";
+import { StyleSheet, Text, View, Animated, Button } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import Profile from "./Profile";
@@ -27,39 +27,55 @@ const data = [
   },
 ];
 
-const friends = data.map((item) => {
-  return (
-    <FriendListItem key={item.name} userName={item.name} avatar={item.image} />
-  );
-});
-
 const FriendList = ({ navigation }) => {
-
   const fadeAnim = useRef(new Animated.Value(0)).current;
   let [fontsLoaded] = useFonts({
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
 
+  
   if (!fontsLoaded) {
     return <Loading />;
   }
-
+  
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 500,
-      useNativeDriver: true
+      useNativeDriver: true,
     }).start();
-  }
+  };
+  
+  const fadeOut = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const friends = data.map((item) => {
+    return (
+      <FriendListItem
+        key={item.name}
+        userName={item.name}
+        avatar={item.image}
+        onPress={fadeOut}
+      />
+    );
+  });
 
   return (
     <View style={styles.container}>
       <Profile userName="Sally" question="Who are we dining with?" />
       <View style={styles.friendsList}></View>
-      <Animated.View style={{opacity: fadeAnim}}>{fadeIn()}{friends}</Animated.View>
+      <Animated.View style={{ opacity: fadeAnim }}>
+        {fadeIn()}
+        {friends}
       <View style={{ marginTop: 100, alignItems: "center" }}>
         <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
       </View>
+      </Animated.View>
     </View>
   );
 };
