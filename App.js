@@ -1,11 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef, useEffect } from "react";
 import { View, Button, Text, TextInput } from "react-native";
-import Icons from "./Components/Icons";
-import CardDeck from "./hooks/CardDeck";
-import SwipeFile from "./Components/SwipeFile";
-import axios from "react-native-axios";
-import { API_KEY_YELP } from "@env";
 import { BusinessList } from "./Components/BusinessList";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -13,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./Components/HomeScreen";
 import FriendList from "./Components/FriendList";
 import Loading from "./Components/Loading";
-import { startClock } from "react-native-reanimated";
+import { createSharedElementStackNavigator } from "react-native-shared-element";
 
 const TestConnection = () => {
   const [message, setMessage] = useState("");

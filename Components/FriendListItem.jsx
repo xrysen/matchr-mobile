@@ -3,9 +3,10 @@ import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from
 import FriendList from "./FriendList";
 import GradientButton from "./GradientButton";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faUserPlus, faUserMinus } from "@fortawesome/free-solid-svg-icons";
+import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const FriendListItem = (props) => {
+const FriendListItem =  (props) => {
   return (
     <View style={{ width: "100%", flexDirection: "row", marginTop: 30 }}>
         <Image

@@ -1,13 +1,41 @@
-import React from "react";
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { StyleSheet, Text, View, Animated } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import Profile from "./Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import FriendListItem from "./FriendListItem";
+import useVisualMode from "../hooks/useVisualMode";
+
+const data = [
+  {
+    name: "Ella Vader",
+    image: require("../assets/Avatars/avatar3.png"),
+  },
+  {
+    name: "Hedda Lettuce",
+    image: require("../assets/Avatars/avatar3.png"),
+  },
+  {
+    name: "Shade E. Dude",
+    image: require("../assets/Avatars/avatar2.png"),
+  },
+  {
+    name: "Stan Lee Park",
+    image: require("../assets/Avatars/avatar2.png"),
+  },
+];
+
+const friends = data.map((item) => {
+  return (
+    <FriendListItem key={item.name} userName={item.name} avatar={item.image} />
+  );
+});
 
 const FriendList = ({ navigation }) => {
+
+  const fadeAnim = useRef(new Animated.Value(0)).current;
   let [fontsLoaded] = useFonts({
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
@@ -16,41 +44,20 @@ const FriendList = ({ navigation }) => {
     return <Loading />;
   }
 
-  const data = [
-    {
-      name: "Ella Vader",
-      image: require("../assets/Avatars/avatar3.png"),
-    },
-    {
-      name: "Hedda Lettuce",
-      image: require("../assets/Avatars/avatar3.png"),
-    },
-    {
-      name: "Shady Dude",
-      image: require("../assets/Avatars/avatar2.png"),
-    },
-    {
-      name: "Stan Lee Park",
-      image: require("../assets/Avatars/avatar2.png"),
-    },
-  ];
-
-  const friends = data.map((item) => {
-    return (
-      <FriendListItem
-        key={item.name}
-        userName={item.name}
-        avatar={item.image}
-      />
-    );
-  });
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true
+    }).start();
+  }
 
   return (
     <View style={styles.container}>
       <Profile userName="Sally" question="Who are we dining with?" />
       <View style={styles.friendsList}></View>
-      {friends}
-      <View style={{marginTop: 100, alignItems: "center"}}>
+      <Animated.View style={{opacity: fadeAnim}}>{fadeIn()}{friends}</Animated.View>
+      <View style={{ marginTop: 100, alignItems: "center" }}>
         <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
       </View>
     </View>
