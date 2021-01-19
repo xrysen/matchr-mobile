@@ -1,44 +1,44 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View } from "react-native";
 import SwipeFile from "./SwipeFile";
 import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
 
-class BusinessList extends React.Component {
-  state = {
-    data: [],
-    loaded: false
-  };
+const BusinessList = (props) => {
+  const [data, setData] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
-async componentDidMount() {
-  let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=mexican&limit=10`, {
+  useEffect(() => {
+    const fetchData = async () => {
+      let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=${props.category}&limit=10`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${ API_KEY_YELP }`,
           },
         });
         const json = await response.json();
-        this.setState({ data: json.businesses, loaded: true });
-}
+        setData(json.businesses);
+        setLoaded(true);
+    }
+    fetchData();
+  },[]);
 
-  render() {
-
-    if(this.state.loaded) {
-      return (
+  if (loaded) {
+    return (
       <View>
-        <SwipeFile cards = {this.state.data} />
+        <SwipeFile cards = {data} />
         <Icons />
       </View>
-      )
-    }
-
-      return (
-        <View>
-          <Loading />
-        </View>
-      );
-    }
+    )
   }
 
-export { BusinessList };
+  return (
+    <View>
+      <Loading />
+    </View>
+  );
+
+}
+
+export default BusinessList;

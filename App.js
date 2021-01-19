@@ -1,14 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef, useEffect } from "react";
 import { View, Button, Text, TextInput } from "react-native";
-import { BusinessList } from "./Components/BusinessList";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./Components/HomeScreen";
 import FriendList from "./Components/FriendList";
 import Loading from "./Components/Loading";
-import { createSharedElementStackNavigator } from "react-native-shared-element";
+import BusinessList from "./Components/BusinessList";
 
 const TestConnection = () => {
   const [message, setMessage] = useState("");
@@ -36,9 +35,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    //<HomeScreen />
-    //<TestConnection />
-    //<FriendList />
+    
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
         <Stack.Screen name = "Home" component = {HomeScreen}></Stack.Screen>
@@ -46,6 +43,5 @@ export default function App() {
         <Stack.Screen name = "BusinessList" component = {BusinessList} />
       </Stack.Navigator>
     </NavigationContainer>
-    
     );
 }

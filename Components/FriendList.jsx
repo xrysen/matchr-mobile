@@ -9,6 +9,7 @@ import FriendListItem from "./FriendListItem";
 import useVisualMode from "../hooks/useVisualMode";
 import Categories from "./Categories";
 import CategoryListItem from "./CategoryListItem";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const data = [
   {
@@ -54,8 +55,7 @@ const FriendList = ({ navigation }) => {
       duration: 500,
       useNativeDriver: true,
     }).start(() => {
-      if (mode === "friends")
-        transition("categories")
+      if (mode === "friends") transition("categories");
       else {
         transition("friends");
       }
@@ -73,11 +73,9 @@ const FriendList = ({ navigation }) => {
     );
   });
 
-  let question = "Who are we dining with?"
-  if (mode==="friends")
-    question = "Who are we dining with?";
-  else
-    question = "What are you in the mood for?";
+  let question = "Who are we dining with?";
+  if (mode === "friends") question = "Who are we dining with?";
+  else question = "What are you in the mood for?";
 
   return (
     <View style={styles.container}>
@@ -88,12 +86,17 @@ const FriendList = ({ navigation }) => {
           {fadeIn()}
           {friends}
           <View style={{ marginTop: 100, alignItems: "center" }}>
-            <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
+            <TouchableOpacity>
+              <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
+            </TouchableOpacity>
           </View>
         </Animated.View>
       )}
       {mode === "categories" && (
-        <Animated.View style={{ opacity: fadeAnim }}>{fadeIn}<Categories onPress = {fadeOut}/></Animated.View>
+        <Animated.View style={{ opacity: fadeAnim }}>
+          {fadeIn()}
+          <Categories onPress={fadeOut} />
+        </Animated.View>
       )}
     </View>
   );
