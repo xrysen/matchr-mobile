@@ -5,11 +5,12 @@ import GradientButton from "./GradientButton";
 
 const CategoryListItem = (props) => {
   const navigation = useNavigation();
+  const category = props.text;
   return (
     <View style={{ width: "100%", marginTop: 30 }}>
         <View style={{ marginTop: 6, alignItems: "center" }}>
           <TouchableOpacity onPress={() => {
-            navigation.navigate("BusinessList", { category: "mexican" });
+            navigation.navigate("BusinessList", { category: category.toLowerCase() });
           }}>
             <GradientButton text={props.text} />
           </TouchableOpacity>

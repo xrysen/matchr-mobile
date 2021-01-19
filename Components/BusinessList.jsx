@@ -5,13 +5,15 @@ import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
 
-const BusinessList = (props) => {
+const BusinessList = ({route, navigation}) => {
   const [data, setData] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
+  const { category } = route.params;
+
   useEffect(() => {
     const fetchData = async () => {
-      let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=${props.category}&limit=10`, {
+      let response = await fetch(`https://api.yelp.com/v3/businesses/search?location=vancouver&categories=${category}&limit=10`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${ API_KEY_YELP }`,

@@ -12,36 +12,37 @@ import BusinessList from "./Components/BusinessList";
 const TestConnection = () => {
   const [message, setMessage] = useState("");
   async function getMsg() {
-    const msg = await fetch("https://matchr.loca.lt/mobile").catch((err) => console.log(err));
+    const msg = await fetch("https://matchr.loca.lt/mobile").catch((err) =>
+      console.log(err)
+    );
     return msg;
   }
 
   useEffect(() => {
     const msg = getMsg();
-    msg.then((res) => res.json()).then(res => setMessage(res.test));
+    msg.then((res) => res.json()).then((res) => setMessage(res.test));
   }, []);
-  
-  if(!message) {
-    return <Loading />
+
+  if (!message) {
+    return <Loading />;
   }
 
-  return (
-    <Text style={{marginTop: 300}}>{message}</Text>
-  )
-}
-
+  return <Text style={{ marginTop: 300 }}>{message}</Text>;
+};
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
-        <Stack.Screen name = "Home" component = {HomeScreen}></Stack.Screen>
-        <Stack.Screen name = "FriendList" component = {FriendList} />
-        <Stack.Screen name = "BusinessList" component = {BusinessList} />
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
+        <Stack.Screen name="FriendList" component={FriendList} />
+        <Stack.Screen name="BusinessList" component={BusinessList} />
       </Stack.Navigator>
     </NavigationContainer>
-    );
+  );
 }
