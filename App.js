@@ -7,6 +7,7 @@ import HomeScreen from "./Components/HomeScreen";
 import FriendList from "./Components/FriendList";
 import Loading from "./Components/Loading";
 import BusinessList from "./Components/BusinessList";
+import Match from "./Components/Match";
 
 const Stack = createStackNavigator();
 
@@ -22,5 +23,6 @@ export default function App() {
         <Stack.Screen name="BusinessList" component={BusinessList} />
       </Stack.Navigator>
     </NavigationContainer>
+    
   );
 }

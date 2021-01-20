@@ -1,28 +1,59 @@
 import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
-import { Modal, StyleSheet, View, Animated, PanResponder, Text, Platform, Dimensions, Image } from "react-native";
+import { StyleSheet, View, Animated, Text, Image } from "react-native";
+
+import Modal from "react-native-modal";
+
+import Match from "./Match";
 
 const SwipeFile = (props) => {
-  const [places, setPlaces] = useState([]);
+  const [places, setPlaces] = 
+  useState(
+    {
+      name: "Placeholder",
+      location: {
+        address1: "Placeholder",
+        city: "Placeholder"
+      }
+    });
   const [modalVisible, setModalVisible] = useState(false);
-  const [data, _panResponder, animation, scale, opacity, answer] = CardDeck(props.cards);
+  const [data, _panResponder, animation, scale, opacity, answer] = CardDeck(
+    props.cards
+  );
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
 
   useEffect(() => {
     if (answer === "match") {
+      setPlaces(data[0]);
       setModalVisible(true);
     }
-  }, [answer])
+  }, [answer]);
 
   return (
     <View>
-      <Modal
-        animationType = "slide"
-        transparent = {true}
-        visible={modalVisible}
-      >
-        <Text style={{color: "white", fontSize: 20}}>Hello</Text>
-      </Modal>
-      
+      <View style={{ width: 300 }}>
+        <Modal
+          animationIn="zoomIn"
+          transparent={true}
+          isVisible={modalVisible}
+          animationInTiming={500}
+          backdropOpacity={0.6}
+        >
+          <Match
+            toggle={toggleModal}
+            name={places.name}
+            phone={places.display_phone}
+            address={places.location.address1}
+            city={places.location.city}
+            rating={places.rating}
+            price={places.price}
+          />
+        </Modal>
+      </View>
+
       {data
         .slice(0, 2)
         .reverse()
@@ -63,12 +94,15 @@ const SwipeFile = (props) => {
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.nameText}>
-                  {item.name} {'\n'}
-                  {item.display_phone.slice(3)}{'\n'}
-                  {item.location.address1}{'\n'}
-                  {item.location.city}{'\n'}
+                  {item.name} {"\n"}
+                  {item.display_phone.slice(3)}
+                  {"\n"}
+                  {item.location.address1}
+                  {"\n"}
+                  {item.location.city}
+                  {"\n"}
                   {item.rating} ⭐ {item.price}
-                  </Text>
+                </Text>
               </View>
             </Animated.View>
           );
@@ -79,38 +113,38 @@ const SwipeFile = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black'
+    backgroundColor: "black",
   },
   card: {
     paddingTop: 30,
-    width: '100%',
+    width: "100%",
     height: 600,
-    backgroundColor: 'black',
-    position: 'absolute',
-    
+    backgroundColor: "black",
+    position: "absolute",
+
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: "black",
   },
   imageContainer: {
-    flex: 1
+    flex: 1,
   },
   image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 5
+    width: "100%",
+    height: "100%",
+    borderRadius: 5,
   },
   textContainer: {
-    padding: 10
+    padding: 10,
   },
   nameText: {
     fontSize: 16,
-    color: "white"
+    color: "white",
   },
   addressText: {
     fontSize: 14,
-    color: '#757575',
-    paddingTop: 5
-  }
-})
+    color: "#757575",
+    paddingTop: 5,
+  },
+});
 
 export default SwipeFile;

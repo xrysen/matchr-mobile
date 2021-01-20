@@ -15,8 +15,7 @@ const Stack = createStackNavigator();
 
 const HomeScreen = ( { navigation }) => {
   let [fontsLoaded] = useFonts({
-    PottaOne: require("../assets/Fonts/PottaOne-Regular.ttf"),
-    DidactGothic: require("../assets/Fonts/DidactGothic-Regular.ttf"),
+    "Lobster": require("../assets/Fonts/Lobster-Regular.ttf"),
     "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
   });
 

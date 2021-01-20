@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ENDPOINT = "https://babcc5d9d34f.ngrok.io";
+const ENDPOINT = "https://022f56427f39.ngrok.io";
 
 // const sendAnswer = (answer) => {
 //   let reply = "test";
