@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Animated, PanResponder, Dimensions } from "react-native";
 import clamp from "clamp";
 const { width } = Dimensions.get("screen");
-import { getRestaurantIdsWithFilter } from "../helpers/yelp";
+import { sendAnswer } from "../helpers/answers";
 
 const SWIPE_THRESHOLD = 0.25 * width;
 
@@ -66,9 +66,9 @@ export default function CardDeck(deck) {
             }),
           ]).start(transitionNext);
           if (velocity > 0) {
-            // handleRightDecay();
+            sendAnswer("Yes");
           } else {
-            // handleLeftDecay();
+            sendAnswer("No");
           }
         } else {
           Animated.spring(animation, {

@@ -9,27 +9,6 @@ import FriendList from "./Components/FriendList";
 import Loading from "./Components/Loading";
 import BusinessList from "./Components/BusinessList";
 
-const TestConnection = () => {
-  const [message, setMessage] = useState("");
-  async function getMsg() {
-    const msg = await fetch("https://matchr.loca.lt/mobile").catch((err) =>
-      console.log(err)
-    );
-    return msg;
-  }
-
-  useEffect(() => {
-    const msg = getMsg();
-    msg.then((res) => res.json()).then((res) => setMessage(res.test));
-  }, []);
-
-  if (!message) {
-    return <Loading />;
-  }
-
-  return <Text style={{ marginTop: 300 }}>{message}</Text>;
-};
-
 const Stack = createStackNavigator();
 
 export default function App() {
