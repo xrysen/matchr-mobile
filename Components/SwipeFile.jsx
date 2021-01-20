@@ -1,14 +1,28 @@
 import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
-import { StyleSheet, View, Animated, PanResponder, Text, Platform, Dimensions, Image } from "react-native";
-import { getRestaurantIdsWithFilter, createRestaurantProfile, buildRestaurants } from "../helpers/yelp";
+import { Modal, StyleSheet, View, Animated, PanResponder, Text, Platform, Dimensions, Image } from "react-native";
 
 const SwipeFile = (props) => {
   const [places, setPlaces] = useState([]);
-  const [data, _panResponder, animation, scale, opacity] = CardDeck(props.cards);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [data, _panResponder, animation, scale, opacity, answer] = CardDeck(props.cards);
+
+  useEffect(() => {
+    if (answer === "match") {
+      setModalVisible(true);
+    }
+  }, [answer])
 
   return (
     <View>
+      <Modal
+        animationType = "slide"
+        transparent = {true}
+        visible={modalVisible}
+      >
+        <Text style={{color: "white", fontSize: 20}}>Hello</Text>
+      </Modal>
+      
       {data
         .slice(0, 2)
         .reverse()

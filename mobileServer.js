@@ -33,6 +33,9 @@ app.post("/mobile/answer", (req, res) => {
   if (req.body.msg === "Yes") {
     if (partnerPicks[userPicks.length - 1] === "Yes") {
       console.log("Match!");
+      res.send("match");
+    } else {
+      res.send("No match");
     }
   }
   res.end();

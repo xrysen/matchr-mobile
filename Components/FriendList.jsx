@@ -79,7 +79,7 @@ const FriendList = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Profile userName="Sally" question={question} />
+      <Profile userName="Tifa" question={question} />
       <View style={styles.friendsList}></View>
       {mode === "friends" && (
         <Animated.View style={{ opacity: fadeAnim }}>
