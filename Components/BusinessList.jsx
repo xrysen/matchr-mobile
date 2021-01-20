@@ -4,7 +4,6 @@ import SwipeFile from "./SwipeFile";
 import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
-import { shuffleArray } from "../helpers/yelp";
 
 const BusinessList = ({route, navigation}) => {
   const [data, setData] = useState([]);

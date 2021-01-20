@@ -2,10 +2,12 @@ import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Animated, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { ENDPOINT } from "../helpers/constants";
 
 import Modal from "react-native-modal";
 
 import Match from "./Match";
+import axios from "react-native-axios/lib/axios";
 
 const SwipeFile = (props) => {
   const navigation = useNavigation();
@@ -29,6 +31,7 @@ const SwipeFile = (props) => {
   };
 
   const goBack = () => {
+    axios.get(`${ENDPOINT}/mobile/reset`);
     navigation.navigate("FriendList");
   }
 

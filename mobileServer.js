@@ -45,7 +45,6 @@ app.get("/mobile/reset", (req, res) => {
   partnerPicks = [];
   userPicks = [];
   generatePartnerPicks();
-  console.log(partnerPicks);
 })
 
 app.get("/mobile", (req, res) => {
