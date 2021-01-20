@@ -1,12 +1,14 @@
 import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Animated, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Modal from "react-native-modal";
 
 import Match from "./Match";
 
 const SwipeFile = (props) => {
+  const navigation = useNavigation();
   const [places, setPlaces] = 
   useState(
     {
@@ -16,6 +18,7 @@ const SwipeFile = (props) => {
         city: "Placeholder"
       }
     });
+  
   const [modalVisible, setModalVisible] = useState(false);
   const [data, _panResponder, animation, scale, opacity, answer] = CardDeck(
     props.cards
@@ -24,6 +27,10 @@ const SwipeFile = (props) => {
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
+
+  const goBack = () => {
+    navigation.navigate("FriendList");
+  }
 
   useEffect(() => {
     if (answer === "match") {
@@ -37,10 +44,13 @@ const SwipeFile = (props) => {
       <View style={{ width: 300 }}>
         <Modal
           animationIn="zoomIn"
+          animationOut="zoomOut"
           transparent={true}
           isVisible={modalVisible}
           animationInTiming={500}
+          animationOutTiming={500}
           backdropOpacity={0.6}
+          onModalHide={() => goBack()}
         >
           <Match
             toggle={toggleModal}
