@@ -9,6 +9,15 @@ const categories = [
   { name: "Mexican" },
   { name: "Italian" },
   { name: "Vietnamese" },
+  { name: "Thai" },
+  { name: "French" },
+  { name: "Korean" },
+  { name: "Greek" },
+  { name: "Vegetarian" },
+  { name: "Vegan" },
+  { name: "BBQ" },
+  { name: "Seafood" },
+  { name: "Sushi" },
 ];
 
 const Categories = (props) => {
@@ -17,7 +26,7 @@ const Categories = (props) => {
   });
 
   return (
-    <View style={{ alignItems: "center" }}>
+    <View>
       {cats}
       <View style={{ alignItems: "center", marginTop: 30 }}>
         <TouchableOpacity onPress={props.onPress}>

@@ -9,7 +9,7 @@ import FriendListItem from "./FriendListItem";
 import useVisualMode from "../hooks/useVisualMode";
 import Categories from "./Categories";
 import CategoryListItem from "./CategoryListItem";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 const data = [
   {
@@ -93,10 +93,12 @@ const FriendList = ({ navigation }) => {
         </Animated.View>
       )}
       {mode === "categories" && (
+      <ScrollView contentContainerStyle={{height: 1350}}>
         <Animated.View style={{ opacity: fadeAnim }}>
           {fadeIn()}
           <Categories onPress={fadeOut} />
         </Animated.View>
+      </ScrollView>
       )}
     </View>
   );
