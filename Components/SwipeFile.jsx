@@ -26,7 +26,7 @@ const SwipeFile = (props) => {
     });
   
   const [modalVisible, setModalVisible] = useState(false);
-  const [data, _panResponder, animation, scale, opacity, answer] = CardDeck(
+  const [data, _panResponder, animation, scale, opacity, answer, showIcons] = CardDeck(
     props.cards
   );
 
@@ -123,9 +123,11 @@ const SwipeFile = (props) => {
                   {item.rating} ⭐ {item.price}
                 </Text>
               </View>
+              
             </Animated.View>
           );
         })}
+        {showIcons()}
     </View>
   );
 };

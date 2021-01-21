@@ -31,7 +31,6 @@ const BusinessList = ({route, navigation}) => {
     return (
       <View>
         <SwipeFile cards = {data} />
-        <Icons />
       </View>
     )
   }

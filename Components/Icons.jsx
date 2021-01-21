@@ -11,7 +11,7 @@ const Icons = (props) => {
       <TouchableOpacity
         activeOpacity={0.6}
         underlayColor="#DDDDDD"
-        onPress={()=> alert("Nope!")}
+        onPress={props.onNo}
       >
         <FontAwesomeIcon icon={faTimesCircle} size={50} color={"red"} />
       </TouchableOpacity>
@@ -19,7 +19,7 @@ const Icons = (props) => {
       <TouchableOpacity
         activeOpacity={0.6}
         underlayColor="#DDDDDD"
-        onPress={()=> alert("Yep!")}
+        onPress={props.onYes}
         >
           <FontAwesomeIcon icon={faHeart} size={50} color={"green"}  />
         </TouchableOpacity>

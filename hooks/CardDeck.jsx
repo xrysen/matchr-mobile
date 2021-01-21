@@ -3,12 +3,12 @@ import { Animated, PanResponder, Dimensions } from "react-native";
 import clamp from "clamp";
 const { width } = Dimensions.get("screen");
 import { sendAnswer } from "../helpers/answers";
+import Icons from "../Components/Icons";
 
 const SWIPE_THRESHOLD = 0.25 * width;
 
 export default function CardDeck(deck) {
   let getReply = "";
-  let reply = "";
   const [data, setData] = useState(deck);
   const [answer, setAnswer] = useState("");
 
@@ -33,6 +33,20 @@ export default function CardDeck(deck) {
         return data.slice(1);
       });
     });
+  };
+
+  const clickYes = () => {
+    getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+    transitionNext();
+  }
+
+  const clickNo = () => {
+    sendAnswer("No");
+    transitionNext();
+  }
+
+  const showIcons = () => {
+    return <Icons onYes={clickYes} onNo={clickNo} />;
   };
 
   useEffect(() => {
@@ -69,9 +83,9 @@ export default function CardDeck(deck) {
             }),
           ]).start(transitionNext);
           if (velocity > 0) {
-           getReply = sendAnswer("Yes").then(res => setAnswer(res));
+            getReply = sendAnswer("Yes").then((res) => setAnswer(res));
           } else {
-           sendAnswer("No");
+            sendAnswer("No");
           }
         } else {
           Animated.spring(animation, {
@@ -83,5 +97,5 @@ export default function CardDeck(deck) {
       },
     })
   ).current;
-  return [data, _panResponder, animation, scale, opacity, answer];
+  return [data, _panResponder, animation, scale, opacity, answer, showIcons];
 }
