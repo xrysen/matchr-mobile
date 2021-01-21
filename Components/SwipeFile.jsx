@@ -18,6 +18,10 @@ const SwipeFile = (props) => {
       location: {
         address1: "Placeholder",
         city: "Placeholder"
+      },
+      coordinates: {
+        latitude: "Placeholder",
+        longitude: "Placeholder"
       }
     });
   
@@ -63,6 +67,8 @@ const SwipeFile = (props) => {
             city={places.location.city}
             rating={places.rating}
             price={places.price}
+            long={places.coordinates.longitude}
+            lat={places.coordinates.latitude}
           />
         </Modal>
       </View>
