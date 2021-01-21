@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import GradientButton from "./GradientButton";
 import * as WebBrowser from "expo-web-browser";
-import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
+import { ACCENT_COLOUR, BACKGROUND_COLOUR, PACIFICO, QUICKSAND } from "../helpers/constants";
 
 const Match = (props) => {
   const openMap = () => {
@@ -13,10 +13,16 @@ const Match = (props) => {
     );
   };
 
+  const openSearch = () => {
+    WebBrowser.openBrowserAsync(
+      `https://www.google.com/search?q=${props.name}, ${props.city}`
+    );
+  }
+
   return (
     <View style={{ height: "100%", alignItems: "center", width: "100%" }}>
       <View style={styles.container}>
-        <Text style={{ fontFamily: "Pacifico", fontSize: 58, color: ACCENT_COLOUR }}>
+        <Text style={{ fontFamily: PACIFICO, fontSize: 58, color: ACCENT_COLOUR }}>
           It's a Match!
         </Text>
 
@@ -29,8 +35,11 @@ const Match = (props) => {
         <TouchableOpacity style={{ marginTop: 10 }} onPress={openMap}>
           <GradientButton text="Map" />
         </TouchableOpacity>
+        <TouchableOpacity style={{ marginTop: 10 }} onPress={openSearch}>
+          <GradientButton text="More Info" />
+        </TouchableOpacity>
         <TouchableOpacity style={{ marginTop: 10 }} onPress={props.toggle}>
-          <GradientButton text="Sweet!" />
+          <GradientButton text="Match Again" />
         </TouchableOpacity>
       </View>
     </View>
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     alignItems: "center",
     width: 400,
-    height: 380,
+    height: 470,
     backgroundColor: BACKGROUND_COLOUR,
     opacity: 20,
     borderRadius: 20,
@@ -50,7 +59,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   textStyle: {
-    fontFamily: "Quicksand",
+    fontFamily: QUICKSAND,
     fontWeight: "bold",
     fontSize: 20,
     color: "black",

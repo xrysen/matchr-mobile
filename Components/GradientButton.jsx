@@ -1,7 +1,7 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import {Text, StyleSheet} from "react-native";
-import {ACCENT_COLOUR, GRADIENT_TO } from "../helpers/constants";
+import {ACCENT_COLOUR, GRADIENT_TO, QUICKSAND } from "../helpers/constants";
 
 const GradientButton = (props) => {
   return (
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     textAlign: "center",
-    fontFamily: "Quicksand",
+    fontFamily: QUICKSAND,
     fontWeight: "bold",
     color: "white",
     textShadowColor: "black",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, TouchableOpacity, Text } from "react-native";
+import { QUICKSAND } from "../helpers/constants";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ const Login = (props) => {
             textAlign: "center",
             color: "white",
             fontSize: 20,
-            fontFamily: "Quicksand",
+            fontFamily: QUICKSAND,
           }}
         >
           Back

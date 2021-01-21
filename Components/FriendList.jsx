@@ -35,7 +35,6 @@ const FriendList = ({ navigation }) => {
   const { mode, transition, back } = useVisualMode("friends");
   const fadeAnim = useRef(new Animated.Value(0)).current;
   let [fontsLoaded] = useFonts({
-    "Lora-Medium": require("../assets/Fonts/Lora-Medium.ttf"),
     "Quicksand": require("../assets/Fonts/Quicksand.ttf"),
     "Pacifico": require("../assets/Fonts/Pacifico-Regular.ttf")
   });
