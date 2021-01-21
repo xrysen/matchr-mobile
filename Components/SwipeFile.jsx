@@ -2,7 +2,7 @@ import CardDeck from "../hooks/CardDeck";
 import React, { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Animated, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { ENDPOINT } from "../helpers/constants";
+import { BACKGROUND_COLOUR, ENDPOINT } from "../helpers/constants";
 
 import Modal from "react-native-modal";
 
@@ -132,17 +132,17 @@ const SwipeFile = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
+    backgroundColor: BACKGROUND_COLOUR,
   },
   card: {
     paddingTop: 30,
     width: "100%",
     height: 600,
-    backgroundColor: "black",
+    backgroundColor: BACKGROUND_COLOUR,
     position: "absolute",
 
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: BACKGROUND_COLOUR,
   },
   imageContainer: {
     flex: 1,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontSize: 16,
-    color: "white",
+    color: "black",
   },
   addressText: {
     fontSize: 14,

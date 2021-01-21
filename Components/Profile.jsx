@@ -1,5 +1,6 @@
 import React from "react";
 import { View, ImageBackground, Image, Text, StyleSheet } from "react-native";
+import { ACCENT_COLOUR } from "../helpers/constants";
 
 const bgImage = {
   uri: "https://www.transparenttextures.com/patterns/black-paper.png",
@@ -33,7 +34,7 @@ const Profile = (props) => {
 
 const styles = StyleSheet.create({
   profile: {
-    backgroundColor: "#846C9C",
+    backgroundColor: ACCENT_COLOUR,
     width: "100%",
     alignItems: "center",
     height: 250,

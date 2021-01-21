@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import { ACCENT_COLOUR } from "../helpers/constants";
+
 import GradientButton from "./GradientButton";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +28,7 @@ const FriendListItem = (props) => {
       </View>
       <View style={styles.icon}>
         <TouchableOpacity>
-          <FontAwesomeIcon icon={faUserMinus} size={50} color={"#846C9C"} />
+          <FontAwesomeIcon icon={faUserMinus} size={50} color={ACCENT_COLOUR} />
         </TouchableOpacity>
       </View>
     </View>

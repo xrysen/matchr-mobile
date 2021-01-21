@@ -4,6 +4,7 @@ import SwipeFile from "./SwipeFile";
 import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
+import { BACKGROUND_COLOUR } from "../helpers/constants";
 
 const BusinessList = ({route, navigation}) => {
   const [data, setData] = useState([]);
@@ -36,7 +37,7 @@ const BusinessList = ({route, navigation}) => {
   }
 
   return (
-    <View style={{backgroundColor: "black", height: "100%"}}>
+    <View style={{height: "100%"}}>
       <Loading />
     </View>
   );
@@ -45,7 +46,7 @@ const BusinessList = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black"
+    backgroundColor: BACKGROUND_COLOUR
   }
 })
 

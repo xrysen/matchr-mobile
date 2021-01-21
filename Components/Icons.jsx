@@ -3,6 +3,7 @@ import { TouchableHighlight, View, StyleSheet } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faTimesCircle, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { BACKGROUND_COLOUR } from "../helpers/constants";
 
 const Icons = (props) => {
   return (
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
     height: "100%",
-    backgroundColor:'black',
+    backgroundColor: BACKGROUND_COLOUR,
     zIndex: -1
   }
 })

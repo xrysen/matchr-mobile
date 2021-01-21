@@ -10,6 +10,7 @@ import useVisualMode from "../hooks/useVisualMode";
 import Categories from "./Categories";
 import CategoryListItem from "./CategoryListItem";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 
 const data = [
   {
@@ -87,7 +88,7 @@ const FriendList = ({ navigation }) => {
           {friends}
           <View style={{ marginTop: 100, alignItems: "center" }}>
             <TouchableOpacity>
-              <FontAwesomeIcon icon={faUserPlus} color={"#846C9C"} size={50} />
+              <FontAwesomeIcon icon={faUserPlus} color={ACCENT_COLOUR} size={50} />
             </TouchableOpacity>
           </View>
         </Animated.View>
@@ -105,17 +106,12 @@ const FriendList = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  profile: {
-    backgroundColor: "#846C9C",
-    width: "100%",
-    alignItems: "center",
-  },
   container: {
     marginTop: 30,
     height: "100%",
   },
   friendsList: {
-    backgroundColor: "black",
+    backgroundColor: BACKGROUND_COLOUR,
     position: "absolute",
     width: "100%",
     height: "100%",

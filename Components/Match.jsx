@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import GradientButton from "./GradientButton";
 import * as WebBrowser from "expo-web-browser";
+import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 
 const Match = (props) => {
   const openMap = () => {
@@ -15,7 +16,7 @@ const Match = (props) => {
   return (
     <View style={{ height: "100%", alignItems: "center", width: "100%" }}>
       <View style={styles.container}>
-        <Text style={{ fontFamily: "Lobster", fontSize: 58, color: "#846C9C" }}>
+        <Text style={{ fontFamily: "Lobster", fontSize: 58, color: ACCENT_COLOUR }}>
           It's a Match!
         </Text>
 
@@ -26,7 +27,7 @@ const Match = (props) => {
         <Text style={styles.textStyle}>{props.rating} ⭐</Text>
 
         <TouchableOpacity style={{ marginTop: 10 }} onPress={openMap}>
-          <GradientButton text="Show Me!" />
+          <GradientButton text="Map" />
         </TouchableOpacity>
         <TouchableOpacity style={{ marginTop: 10 }} onPress={props.toggle}>
           <GradientButton text="Sweet!" />
@@ -42,16 +43,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 400,
     height: 380,
-    backgroundColor: "black",
+    backgroundColor: BACKGROUND_COLOUR,
     opacity: 20,
     borderRadius: 20,
-    borderColor: "#846C9C",
+    borderColor: ACCENT_COLOUR,
     borderWidth: 1,
   },
   textStyle: {
     fontFamily: "Lora-Medium",
     fontSize: 20,
-    color: "white",
+    color: "black",
   },
 });
 

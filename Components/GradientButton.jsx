@@ -1,10 +1,11 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import {Text, StyleSheet} from "react-native";
+import {ACCENT_COLOUR, GRADIENT_TO } from "../helpers/constants";
 
 const GradientButton = (props) => {
   return (
-    <LinearGradient colors={['#846C9C', '#9921E8']} style={styles.buttonSize}>
+    <LinearGradient colors={[ACCENT_COLOUR, GRADIENT_TO]} style={styles.buttonSize}>
       <Text style={styles.textStyle}>{props.text}</Text>
     </LinearGradient>
   )
