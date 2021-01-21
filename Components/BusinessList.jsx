@@ -36,7 +36,7 @@ const BusinessList = ({route, navigation}) => {
   }
 
   return (
-    <View>
+    <View style={{backgroundColor: "black", height: "100%"}}>
       <Loading />
     </View>
   );
