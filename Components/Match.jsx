@@ -18,12 +18,15 @@ const Match = (props) => {
         <Text style={{ fontFamily: "Lobster", fontSize: 58, color: "#846C9C" }}>
           It's a Match!
         </Text>
-        <TouchableOpacity onPress={openMap} style={{alignItems: "center"}}>
-          <Text style={styles.textStyle}>{props.name}</Text>
-          <Text style={styles.textStyle}>{props.phone.slice(2)}</Text>
-          <Text style={styles.textStyle}>{props.address}</Text>
-          <Text style={styles.textStyle}>{props.city}</Text>
-          <Text style={styles.textStyle}>{props.rating} ⭐</Text>
+
+        <Text style={styles.textStyle}>{props.name}</Text>
+        <Text style={styles.textStyle}>{props.phone.slice(2)}</Text>
+        <Text style={styles.textStyle}>{props.address}</Text>
+        <Text style={styles.textStyle}>{props.city}</Text>
+        <Text style={styles.textStyle}>{props.rating} ⭐</Text>
+
+        <TouchableOpacity style={{ marginTop: 10 }} onPress={openMap}>
+          <GradientButton text="Show Me!" />
         </TouchableOpacity>
         <TouchableOpacity style={{ marginTop: 10 }} onPress={props.toggle}>
           <GradientButton text="Sweet!" />
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     alignItems: "center",
     width: 400,
-    height: 300,
+    height: 380,
     backgroundColor: "black",
     opacity: 20,
     borderRadius: 20,
