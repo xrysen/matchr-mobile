@@ -7,11 +7,10 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import FriendList from "./FriendList";
+
 import GradientButton from "./GradientButton";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
-import { useNavigation } from "@react-navigation/native";
 
 const FriendListItem = (props) => {
   return (
