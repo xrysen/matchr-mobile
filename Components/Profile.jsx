@@ -18,12 +18,12 @@ const Profile = (props) => {
           style={{ marginTop: 20, marginBottom: 20, borderRadius: 10 }}
         />
         <Text
-          style={{ color: "white", fontFamily: "Lora-Medium", fontSize: 20 }}
+          style={{ color: "white", fontFamily: "Quicksand", fontSize: 20, fontWeight: "bold" }}
         >
           Welcome, {props.userName}!
         </Text>
         <Text
-          style={{ color: "white", fontSize: 20, fontFamily: "Lora-Medium" }}
+          style={{ color: "white", fontSize: 20, fontFamily: "Quicksand", fontWeight: "bold" }}
         >
           {props.question}
         </Text>

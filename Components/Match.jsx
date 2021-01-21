@@ -16,7 +16,7 @@ const Match = (props) => {
   return (
     <View style={{ height: "100%", alignItems: "center", width: "100%" }}>
       <View style={styles.container}>
-        <Text style={{ fontFamily: "Lobster", fontSize: 58, color: ACCENT_COLOUR }}>
+        <Text style={{ fontFamily: "Pacifico", fontSize: 58, color: ACCENT_COLOUR }}>
           It's a Match!
         </Text>
 
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   textStyle: {
-    fontFamily: "Lora-Medium",
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
     fontSize: 20,
     color: "black",
   },

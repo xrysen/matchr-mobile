@@ -104,6 +104,7 @@ const SwipeFile = (props) => {
               style={[styles.card, cardStyle, nextStyle]}
               key={item.id}
             >
+            
               <View style={styles.imageContainer}>
                 <Image
                   style={styles.image}

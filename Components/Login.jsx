@@ -38,7 +38,7 @@ const Login = (props) => {
             textAlign: "center",
             color: "white",
             fontSize: 20,
-            fontFamily: "Lora-Medium",
+            fontFamily: "Quicksand",
           }}
         >
           Back

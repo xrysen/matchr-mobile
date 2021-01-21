@@ -16,7 +16,7 @@ let userPicks = [];
 const generatePartnerPicks = () => {
   for (let i = 0; i < 10; i++) {
     let randomNum = Math.floor(Math.random() * 10) + 1;
-    if (randomNum > 5 && partnerPicks.length > 2) {
+    if ((randomNum > 5 && partnerPicks.length > 2) || i === 9) { // Make sure there is always at least one yes
       partnerPicks.push("Yes");
     } else {
       partnerPicks.push("No");

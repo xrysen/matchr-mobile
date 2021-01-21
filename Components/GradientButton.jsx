@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     textAlign: "center",
-    fontFamily: "Lora-Medium",
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
     color: "white",
     textShadowColor: "black",
     fontSize: 20
