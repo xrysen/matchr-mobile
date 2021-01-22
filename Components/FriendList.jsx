@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { StyleSheet, View, Animated, Button } from "react-native";
+import React, { useRef, useEffect } from "react";
+import { StyleSheet, View, Animated } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import Profile from "./Profile";
