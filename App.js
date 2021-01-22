@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Button, Text, TextInput } from "react-native";
+import { View, Button, Text, TextInput, LogBox } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,6 +11,8 @@ import NoMatch from "./Components/NoMatch";
 import { useFonts } from "expo-font";
 
 const Stack = createStackNavigator();
+
+LogBox.ignoreAllLogs(true);
 
 export default function App() {
   let [fontsLoaded] = useFonts({
