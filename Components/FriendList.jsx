@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { StyleSheet, Text, View, Animated, Button } from "react-native";
+import React, { useRef } from "react";
+import { StyleSheet, View, Animated, Button } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import Profile from "./Profile";
@@ -8,7 +8,6 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import FriendListItem from "./FriendListItem";
 import useVisualMode from "../hooks/useVisualMode";
 import Categories from "./Categories";
-import CategoryListItem from "./CategoryListItem";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 

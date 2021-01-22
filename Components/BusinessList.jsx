@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import SwipeFile from "./SwipeFile";
-import Icons from "./Icons";
 import Loading from "./Loading";
 import { API_KEY_YELP } from "@env";
 import { BACKGROUND_COLOUR } from "../helpers/constants";

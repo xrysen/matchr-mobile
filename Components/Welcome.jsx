@@ -1,8 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View, Text } from "react-native";
 import GradientButton from "./GradientButton";
-import { useNavigation } from "@react-navigation/native";
-import { BusinessList } from "./BusinessList";
 
 const Welcome = (props) => {
   return (

@@ -4,9 +4,7 @@ import { ImageBackground, View, Image } from "react-native";
 import Loading from "./Loading";
 import useVisualMode from "../hooks/useVisualMode"
 import Welcome from "./Welcome";
-import Login from "./Login";
 import { BusinessList } from "./BusinessList";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 
