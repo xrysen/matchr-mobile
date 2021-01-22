@@ -24,6 +24,7 @@ export default function App() {
     return <Loading />
   }
 
+
   return (
     <NavigationContainer>
       <Stack.Navigator
