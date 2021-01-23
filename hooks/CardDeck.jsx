@@ -5,6 +5,10 @@ import clamp from "clamp";
 const { width } = Dimensions.get("screen");
 import { sendAnswer, sendWsAnswer } from "../helpers/answers";
 import Icons from "../Components/Icons";
+import socketIO from "socket.io-client";
+import {ENDPOINT} from "../helpers/constants";
+
+const socket = socketIO(ENDPOINT);
 
 const SWIPE_THRESHOLD = 0.25 * width;
 
@@ -13,10 +17,13 @@ export default function CardDeck(deck) {
   let getReply = "";
   const [data, setData] = useState(deck);
   const [answer, setAnswer] = useState("");
+  const [currPlace, setCurrPlace] = useState({});
 
   const animation = useRef(new Animated.ValueXY()).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(0.9)).current;
+
+  socket.on("match", (res) => setAnswer("match"));
 
   const transitionNext = function () {
     Animated.parallel([
@@ -43,6 +50,7 @@ export default function CardDeck(deck) {
 
   const clickYes = () => {
     //getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+    setCurrPlace(data[0]);
     sendWsAnswer({ ans: "yay", user: "mobile", restaurantPhone: data[0].display_phone.slice(3), restaurant: 1});
     transitionNext();
   };
@@ -105,5 +113,5 @@ export default function CardDeck(deck) {
       },
     })
   ).current;
-  return [data, _panResponder, animation, scale, opacity, answer, showIcons];
+  return [data, _panResponder, animation, scale, opacity, answer, showIcons, currPlace];
 }

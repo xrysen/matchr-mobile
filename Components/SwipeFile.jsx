@@ -10,6 +10,7 @@ import Match from "./Match";
 import axios from "react-native-axios/lib/axios";
 
 const SwipeFile = (props) => {
+  const [lastAnswer, setLastAnswer] = useState({});
   const navigation = useNavigation();
   const [places, setPlaces] = 
   useState(
@@ -26,7 +27,7 @@ const SwipeFile = (props) => {
     });
   
   const [modalVisible, setModalVisible] = useState(false);
-  const [data, _panResponder, animation, scale, opacity, answer, showIcons] = CardDeck(
+  const [data, _panResponder, animation, scale, opacity, answer, showIcons, currPlace] = CardDeck(
     props.cards
   );
 
@@ -41,7 +42,7 @@ const SwipeFile = (props) => {
 
   useEffect(() => {
     if (answer === "match") {
-      setPlaces(data[0]);
+      setPlaces(currPlace);
       setModalVisible(true);
     }
   }, [answer]);
@@ -67,8 +68,6 @@ const SwipeFile = (props) => {
             city={places.location.city}
             rating={places.rating}
             price={places.price}
-            long={places.coordinates.longitude}
-            lat={places.coordinates.latitude}
           />
         </Modal>
       </View>
