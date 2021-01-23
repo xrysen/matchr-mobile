@@ -12,15 +12,6 @@ import { ENDPOINT } from "../helpers/constants";
 const splashScreen = require("../assets/splashScreen.jpg");
 const Stack = createStackNavigator();
 
-const socket = socketIO(ENDPOINT, {
-  transports: ["websocket"],
-  jsonp: false,
-});
-socket.connect();
-socket.on("connect", () => {
-  console.log("Connected");
-});
-
 const HomeScreen = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     Lobster: require("../assets/Fonts/Lobster-Regular.ttf"),
@@ -28,10 +19,6 @@ const HomeScreen = ({ navigation }) => {
   });
 
   const { mode, transition, back } = useVisualMode("Home");
-
-  useEffect(() => {
-    socket.emit("new match session", { category: "mexican", user: "mobile_says_hi" });
-  }, []);
 
   if (!fontsLoaded) {
     return <Loading />;

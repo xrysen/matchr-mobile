@@ -3,7 +3,7 @@ import { Animated, PanResponder, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import clamp from "clamp";
 const { width } = Dimensions.get("screen");
-import { sendAnswer } from "../helpers/answers";
+import { sendAnswer, sendWsAnswer } from "../helpers/answers";
 import Icons from "../Components/Icons";
 
 const SWIPE_THRESHOLD = 0.25 * width;
@@ -42,12 +42,14 @@ export default function CardDeck(deck) {
   };
 
   const clickYes = () => {
-    getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+    //getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+    sendWsAnswer({ ans: "yay", user: "mobile", restaurantPhone: data[0].display_phone.slice(3), restaurant: 1});
     transitionNext();
   };
 
   const clickNo = () => {
-    sendAnswer("No");
+    //sendAnswer("No");
+    sendWsAnswer({ ans: "nay", user: "mobile", restaurantPhone: data[0].display_phone.slice(3), restaurant: 1});
     transitionNext();
   };
 

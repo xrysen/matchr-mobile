@@ -9,21 +9,33 @@ import Loading from "./Components/Loading";
 import BusinessList from "./Components/BusinessList";
 import NoMatch from "./Components/NoMatch";
 import { useFonts } from "expo-font";
+import socketIO from "socket.io-client";
+import { ENDPOINT } from "./helpers/constants";
 
 const Stack = createStackNavigator();
+
+const socket = socketIO(ENDPOINT, {
+  transports: ["websocket"],
+  jsonp: false,
+});
+
+socket.connect();
+
+socket.on("connect", () => {
+  console.log("Connected");
+});
 
 LogBox.ignoreAllLogs(true);
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    "Quicksand": require("./assets/Fonts/Quicksand.ttf"),
-    "Pacifico": require("./assets/Fonts/Pacifico-Regular.ttf")
+    Quicksand: require("./assets/Fonts/Quicksand.ttf"),
+    Pacifico: require("./assets/Fonts/Pacifico-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
-    return <Loading />
+    return <Loading />;
   }
-
 
   return (
     <NavigationContainer>

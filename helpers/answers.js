@@ -1,5 +1,11 @@
 import axios from "axios";
 import { ENDPOINT } from "./constants";
+import socketIO from "socket.io-client";
+
+const socket = socketIO(ENDPOINT, {
+  transports: ["websocket"],
+  jsonp: false,
+});
 
 // const sendAnswer = (answer) => {
 //   let reply = "test";
@@ -18,4 +24,8 @@ async function sendAnswer(answer) {
 
 }
 
-export { sendAnswer };
+const sendWsAnswer = (answer) => {
+  socket.emit("answer", answer);
+}
+
+export { sendAnswer, sendWsAnswer };
