@@ -19,7 +19,6 @@ const socket = socketIO(ENDPOINT, {
   jsonp: false,
 });
 
-socket.connect();
 
 socket.on("connect", () => {
   console.log("Connected");
@@ -28,6 +27,7 @@ socket.on("connect", () => {
 LogBox.ignoreAllLogs(true);
 
 export default function App() {
+  socket.connect();
   let [fontsLoaded] = useFonts({
     Quicksand: require("./assets/Fonts/Quicksand.ttf"),
     Pacifico: require("./assets/Fonts/Pacifico-Regular.ttf"),

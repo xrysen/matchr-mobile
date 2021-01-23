@@ -23,6 +23,8 @@ export default function CardDeck(deck) {
   const opacity = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(0.9)).current;
 
+  let currIndex = 0;
+
   socket.on("match", (res) => setAnswer("match"));
 
   const transitionNext = function () {
@@ -99,9 +101,14 @@ export default function CardDeck(deck) {
             }),
           ]).start(transitionNext);
           if (velocity > 0) {
-            getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+            //getReply = sendAnswer("Yes").then((res) => setAnswer(res));
+            setCurrPlace(data[currIndex]);
+            sendWsAnswer({ ans: "yay", user: "mobile", restaurantPhone: data[currIndex].display_phone.slice(3), restaurant: 1});
+            currIndex++;
           } else {
-            sendAnswer("No");
+            //sendAnswer("No");
+            sendWsAnswer({ ans: "nay", user: "mobile", restaurantPhone: data[currIndex].display_phone.slice(3), restaurant: 1});
+            currIndex++;
           }
         } else {
           Animated.spring(animation, {
