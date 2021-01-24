@@ -33,7 +33,7 @@ const BusinessList = ({ route, navigation }) => {
       setLoaded(true);
     };
     fetchData();
-    socket.emit("new match session", { category: category, user: "mobile" });
+    socket.emit("new match session", { category: category, user: "mobile@mobile.com" });
   }, []);
 
   if (loaded) {
