@@ -8,7 +8,10 @@ import Icons from "../Components/Icons";
 import socketIO from "socket.io-client";
 import {ENDPOINT} from "../helpers/constants";
 
-const socket = socketIO(ENDPOINT);
+const socket = socketIO(ENDPOINT, {
+  transports: ["websocket"],
+  jsonp: false,
+});
 
 const SWIPE_THRESHOLD = 0.25 * width;
 

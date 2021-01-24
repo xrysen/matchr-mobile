@@ -6,8 +6,6 @@ import useVisualMode from "../hooks/useVisualMode";
 import Welcome from "./Welcome";
 import { BusinessList } from "./BusinessList";
 import { createStackNavigator } from "@react-navigation/stack";
-import socketIO from "socket.io-client";
-import { ENDPOINT } from "../helpers/constants";
 
 const splashScreen = require("../assets/splashScreen.jpg");
 const Stack = createStackNavigator();

@@ -1,5 +1,5 @@
 import CardDeck from "../hooks/CardDeck";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Animated, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { BACKGROUND_COLOUR, ENDPOINT } from "../helpers/constants";
@@ -10,7 +10,6 @@ import Match from "./Match";
 import axios from "react-native-axios/lib/axios";
 
 const SwipeFile = (props) => {
-  const [lastAnswer, setLastAnswer] = useState({});
   const navigation = useNavigation();
   const [places, setPlaces] = 
   useState(
