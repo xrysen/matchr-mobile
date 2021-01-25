@@ -28,7 +28,7 @@ export default function CardDeck(deck) {
 
   let currIndex = 0;
 
-  const theUser = { id: 1, name: "Mobile User", email: "mobile@mobile.com" }
+  const theUser = { id: 9, name: "Sue Mango", email: "sue@mango.com" }
 
   socket.on("match", (res) => setAnswer("match"));
 
@@ -62,9 +62,10 @@ export default function CardDeck(deck) {
     sendWsAnswer({ 
       ans: "yay", 
       user: theUser, 
+      user_id: 9,
       restaurantPhone: data[0].display_phone.slice(3), 
-      restaurant: 1,
-
+      restaurant: data[0],
+      partner_id: 8
     });
     transitionNext();
   };

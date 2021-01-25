@@ -1,4 +1,4 @@
-const ENDPOINT = "http://07f010eb6a9e.ngrok.io";
+const ENDPOINT = "http://3b6e0dee2ed8.ngrok.io";
 const ACCENT_COLOUR = "#85CDC9";
 const GRADIENT_TO = "#43a39e";
 const BACKGROUND_COLOUR = "white";

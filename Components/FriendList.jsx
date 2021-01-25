@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { StyleSheet, View, Animated } from "react-native";
+import React, { useRef } from "react";
+import { StyleSheet, View, Animated, Button } from "react-native";
 import { useFonts } from "expo-font";
 import Loading from "./Loading";
 import Profile from "./Profile";
@@ -13,19 +13,27 @@ import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 
 const data = [
   {
-    name: "Ella Vader",
-    image: require("../assets/Avatars/avatar3.png"),
-  },
-  {
-    name: "Hedda Lettuce",
-    image: require("../assets/Avatars/avatar3.png"),
-  },
-  {
-    name: "Shade E. Dude",
+    name: "Bart Simpson",
     image: require("../assets/Avatars/avatar2.png"),
   },
   {
-    name: "Stan Lee Park",
+    name: "Bob Mango",
+    image: require("../assets/Avatars/avatar2.png"),
+  },
+  {
+    name: "Stanley Park",
+    image: require("../assets/Avatars/avatar3.png"),
+  },
+  {
+    name: "Dante Cross",
+    image: require("../assets/Avatars/avatar2.png"),
+  },
+  {
+    name: "Arthur Remy",
+    image: require("../assets/Avatars/avatar2.png"),
+  },
+  {
+    name: "John Oke",
     image: require("../assets/Avatars/avatar2.png"),
   },
 ];
@@ -80,9 +88,11 @@ const FriendList = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Profile userName="Tifa" question={question} />
+      <Profile userName="Sue" question={question} />
       <View style={styles.friendsList}></View>
+
       {mode === "friends" && (
+      <ScrollView contentContainerStyle={{height: 900}}>
         <Animated.View style={{ opacity: fadeAnim }}>
           {fadeIn()}
           {friends}
@@ -92,6 +102,7 @@ const FriendList = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </Animated.View>
+      </ScrollView>
       )}
       {mode === "categories" && (
       <ScrollView contentContainerStyle={{height: 1350}}>
