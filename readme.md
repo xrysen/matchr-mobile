@@ -1,7 +1,7 @@
 # Matchr Mobile
 
 ## Introduction:
-Matchr Mobile is the mobile version of [Matchr](https://github.com/xrysen/matcher) created using using React-Native and Javascript. It relies on the Express server found in the previously linked repo.
+Matchr Mobile is the mobile version of [Matchr](https://github.com/xrysen/matcher) created with React-Native and Javascript. It relies on the Express server found in the previously linked repo.
 
 Inspired by Tinder, Matchr will allow two people to swipe left or right on local restaurants until a match is found for both, cementing dinner plans for the evening!
 
