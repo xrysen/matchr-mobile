@@ -10,23 +10,19 @@ Right now the user is hardcoded, but could be easily updated to retreive info fr
 It has also only been tested on an Android emulator, but due to it being created in React-Native, it should also work on iOS
 
 ## Screenshots:
----
 
 ## Technologies:
----
 - Javascript
 - React-Native
 - Expo
 
 ## Build Process
----
 Clone and npm install [Matchr](https://github.com/xrysen/matcher)
 <br />
 Run npm install to install all dependencies.
 Run expo and load onto the Android emulator of your choice.
 
 ## Dependencies
----
 - @fortawesome/fontawesome-svg-core 1.2.x
 - @fortawesome/free-solid-svg-icons 5.15.2
 - @fortawesome/react-native-fontawesome 0.2.6
