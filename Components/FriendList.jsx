@@ -14,27 +14,27 @@ import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 const data = [
   {
     name: "Bob Mango",
-    image: require("../assets/Avatars/avatar2.png"),
+    image: require("../assets/Avatars/bobMango.png"),
   },
   {
     name: "Stanley Park",
-    image: require("../assets/Avatars/avatar3.png"),
+    image: require("../assets/Avatars/stanley.png"),
   },
   {
     name: "Dante Cross",
-    image: require("../assets/Avatars/avatar2.png"),
+    image: require("../assets/Avatars/dante.png"),
   },
   {
     name: "Arthur Remy",
-    image: require("../assets/Avatars/avatar2.png"),
+    image: require("../assets/Avatars/arthur.png"),
   },
   {
     name: "John Oke",
-    image: require("../assets/Avatars/avatar2.png"),
+    image: require("../assets/Avatars/john.png"),
   },
   {
     name: "Sean Oyler",
-    image: require("../assets/Avatars/avatar2.png"),
+    image: require("../assets/Avatars/sean.png"),
   }
 ];
 
