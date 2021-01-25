@@ -11,10 +11,8 @@ It has also only been tested on an Android emulator, but due to it being created
 
 ## Screenshots:
 
-<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss1.png?raw=true" width = 270 height = 540>
-<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss3.png?raw=true" width=270 height = 540>
-<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss4.png?raw=true" width=270 height = 540>
-<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss6.png?raw=true" width=270 height = 540>
+<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss1.png?raw=true" width = 270 height = 540><img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss3.png?raw=true" width=270 height = 540>
+<img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss4.png?raw=true" width=270 height = 540><img src = "https://github.com/xrysen/matchr-mobile/blob/master/docs/ss6.png?raw=true" width=270 height = 540>
 
 ## Technologies:
 - Javascript
