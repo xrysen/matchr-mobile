@@ -24,6 +24,7 @@ socket.on("connect", () => {
   console.log("Connected");
 });
 
+
 LogBox.ignoreAllLogs(true);
 
 export default function App() {

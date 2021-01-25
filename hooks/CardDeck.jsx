@@ -6,7 +6,7 @@ const { width } = Dimensions.get("screen");
 import { sendAnswer, sendWsAnswer } from "../helpers/answers";
 import Icons from "../Components/Icons";
 import socketIO from "socket.io-client";
-import {ENDPOINT} from "../helpers/constants";
+import { ENDPOINT } from "../helpers/constants";
 
 const socket = socketIO(ENDPOINT, {
   transports: ["websocket"],
@@ -28,7 +28,7 @@ export default function CardDeck(deck) {
 
   let currIndex = 0;
 
-  const theUser = { id: 9, name: "Sue Mango", email: "sue@mango.com" }
+  const theUser = { id: 9, name: "Sue Mango", email: "sue@mango.com" };
 
   socket.on("match", (res) => setAnswer("match"));
 
@@ -45,10 +45,8 @@ export default function CardDeck(deck) {
         useNativeDriver: false,
       }),
     ]).start(() => {
-      if (data.length > 1)
-        console.log(data.length - 1);
-      else
-        navigation.navigate("NoMatch");
+      if (data.length > 1) console.log(data.length - 1);
+      else navigation.navigate("NoMatch");
       setData((data) => {
         return data.slice(1);
       });
@@ -57,22 +55,27 @@ export default function CardDeck(deck) {
 
   const clickYes = () => {
     //getReply = sendAnswer("Yes").then((res) => setAnswer(res));
-    
+
     setCurrPlace(data[0]);
-    sendWsAnswer({ 
-      ans: "yay", 
-      user: theUser, 
+    sendWsAnswer({
+      ans: "yay",
+      user: theUser,
       user_id: 9,
-      restaurantPhone: data[0].display_phone.slice(3), 
+      restaurantPhone: data[0].display_phone.slice(3),
       restaurant: data[0],
-      partner_id: 8
+      partner_id: 8,
     });
     transitionNext();
   };
 
   const clickNo = () => {
     //sendAnswer("No");
-    sendWsAnswer({ ans: "nay", user: theUser, restaurantPhone: data[0].display_phone.slice(3), restaurant: 1});
+    sendWsAnswer({
+      ans: "nay",
+      user: theUser,
+      restaurantPhone: data[0].display_phone.slice(3),
+      restaurant: 1,
+    });
     transitionNext();
   };
 
@@ -116,11 +119,23 @@ export default function CardDeck(deck) {
           if (velocity > 0) {
             //getReply = sendAnswer("Yes").then((res) => setAnswer(res));
             setCurrPlace(data[currIndex]);
-            sendWsAnswer({ ans: "yay", user: theUser, restaurantPhone: data[currIndex].display_phone.slice(3), restaurant: 1});
+            sendWsAnswer({
+              ans: "yay",
+              user: theUser,
+              user_id: 9,
+              restaurantPhone: data[currIndex].display_phone.slice(3),
+              restaurant: data[currIndex],
+              partner_id: 8,
+            });
             currIndex++;
           } else {
             //sendAnswer("No");
-            sendWsAnswer({ ans: "nay", user: theUser, restaurantPhone: data[currIndex].display_phone.slice(3), restaurant: 1});
+            sendWsAnswer({
+              ans: "nay",
+              user: theUser,
+              restaurantPhone: data[currIndex].display_phone.slice(3),
+              restaurant: 1,
+            });
             currIndex++;
           }
         } else {
@@ -133,5 +148,14 @@ export default function CardDeck(deck) {
       },
     })
   ).current;
-  return [data, _panResponder, animation, scale, opacity, answer, showIcons, currPlace];
+  return [
+    data,
+    _panResponder,
+    animation,
+    scale,
+    opacity,
+    answer,
+    showIcons,
+    currPlace,
+  ];
 }

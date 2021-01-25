@@ -13,10 +13,6 @@ import { ACCENT_COLOUR, BACKGROUND_COLOUR } from "../helpers/constants";
 
 const data = [
   {
-    name: "Bart Simpson",
-    image: require("../assets/Avatars/avatar2.png"),
-  },
-  {
     name: "Bob Mango",
     image: require("../assets/Avatars/avatar2.png"),
   },
@@ -36,6 +32,10 @@ const data = [
     name: "John Oke",
     image: require("../assets/Avatars/avatar2.png"),
   },
+  {
+    name: "Sean Oyler",
+    image: require("../assets/Avatars/avatar2.png"),
+  }
 ];
 
 const FriendList = ({ navigation }) => {
